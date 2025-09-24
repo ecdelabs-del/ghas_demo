@@ -2,7 +2,7 @@ import requests
 import os
 
 # GitHub token is used for demo purposes and is not real
-GITHUB_TOKEN = os.environ.get("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N") 
+GITHUB_TOKEN = "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N"
 ORGANIZATION_NAME = "YOUR_ORGANIZATION_NAME" # Replace with your organization's name
 
 def list_organization_repositories(org_name, token):
@@ -50,6 +50,3 @@ if __name__ == "__main__":
         else:
             print("No repositories found or an error occurred.")
 
-# insecure code for demo purposes. Keys are not real.
-
-github_personal_token = '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'
