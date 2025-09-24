@@ -1,16 +1,11 @@
 import boto3
 
 # insecure code for demo purposes. Keys are not real.
-
-AWS_ACCESS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE'
-AWS_SECRET_ACCESS_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEYY'
-AWS_REGION = 'us-east-1' 
-
 s3_client = boto3.client(
     's3',
-    aws_access_key_id=AWS_ACCESS_KEY_ID,
-    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-    region_name=AWS_REGION
+    aws_access_key_id='AKIAIOSFODNN7EXAMPLE',
+    aws_secret_access_key='wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEYY',
+    region_name='us-east-1'
 )
 
 # Initialize the S3 client
