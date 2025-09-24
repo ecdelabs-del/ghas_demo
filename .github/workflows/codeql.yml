@@ -1,0 +1,30 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ main ] # Scans pushes to the 'main' and 'protected-branch'
+  pull_request:
+    branches: [ main ] # Scans pull requests targeting the 'main' branch
+  schedule:
+    - cron: '20 14 * * 1' # Scans the default branch every Monday at 14:20 UTC
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest # Or your preferred runner
+    permissions:
+      security-events: write # Required to upload SARIF results to GitHub
+      actions: read # Required to download artifacts from other jobs
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: 'python'
+        query-suite: security-extended # Optional: Use a different query suite (e.g., security-extended)
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
