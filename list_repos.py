@@ -1,5 +1,15 @@
-import os 
+from flask import request, Flask
+import re
 
-# Vulnerability: Directly using user-controlled input to execute a command.
-command = input("Enter a command to execute: ")
-os.system(command)
+
+@app.route("/direct")
+def direct():
+    unsafe_pattern = request.args["pattern"]
+    re.search(unsafe_pattern, "")
+
+
+@app.route("/compile")
+def compile():
+    unsafe_pattern = request.args["pattern"]
+    compiled_pattern = re.compile(unsafe_pattern)
+    compiled_pattern.search("")
